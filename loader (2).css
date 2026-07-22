@@ -1,0 +1,99 @@
+/* ---------- route loader (lava-lamp) ----------
+   Shown briefly when navigating into the recorder or the chat, and on
+   arrival at those pages while things spin up. */
+
+.route-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #0d0e15 0%, #05050a 75%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.route-loader.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s ease, visibility 0s linear 0s;
+}
+
+.lava-lamp {
+  position: relative;
+  width: 64px;
+  height: 128px;
+  background: #0a0a12;
+  border: 1px solid rgba(236, 234, 245, 0.12);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(124, 92, 252, 0.28), inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.lava-lamp .bubble,
+.lava-lamp .b1,
+.lava-lamp .b2,
+.lava-lamp .b3 {
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  animation-name: lava-drop;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.lava-lamp .bubble {
+  width: 24px;
+  height: 24px;
+  left: 20px;
+  background: linear-gradient(to bottom, #e64980, #ff8787);
+  animation-duration: 2.2s;
+}
+
+.lava-lamp .b1 {
+  width: 22px;
+  height: 22px;
+  left: 4px;
+  background: linear-gradient(to bottom, #82c91e, #3bc9db);
+  animation-duration: 1.7s;
+}
+
+.lava-lamp .b2 {
+  width: 20px;
+  height: 20px;
+  left: 36px;
+  background: linear-gradient(to bottom, #7950f2, #f783ac);
+  animation-duration: 2s;
+}
+
+.lava-lamp .b3 {
+  width: 18px;
+  height: 18px;
+  left: 24px;
+  background: linear-gradient(to bottom, #4481eb, #04befe);
+  animation-duration: 2.6s;
+}
+
+@keyframes lava-drop {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(96px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lava-lamp .bubble,
+  .lava-lamp .b1,
+  .lava-lamp .b2,
+  .lava-lamp .b3 {
+    animation: none;
+    top: 42%;
+  }
+}

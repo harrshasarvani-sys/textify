@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TextifyPro 2.0 — speak in any language, watch it take shape</title>
+<meta name="description" content="TextifyPro 2.0 turns your voice into text in 29 languages, letting particles gather into words as you speak — now with an AI chat powered by Sarvam. Indian languages powered by Sarvam AI, global languages powered by ElevenLabs." />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="loader.css" />
+</head>
+<body>
+
+  <div id="splash-screen" class="splash-screen">
+    <video
+      id="splash-video"
+      class="splash-video"
+      src="assets/splash.mp4"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+    ></video>
+    <button id="splash-skip" class="splash-skip" aria-label="Skip intro">Skip →</button>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="page">
+
+    <header class="topbar">
+      <div class="wordmark">
+        <img src="assets/logo.png" alt="TextifyPro logo" class="wordmark-logo" />
+        TEXTIFYPRO <span class="wordmark-version">2.0</span>
+      </div>
+      <nav class="nav-links">
+        <a href="app/chat.html" class="nav-link" data-loader-nav>Chat</a>
+        <a href="app/index.html" class="nav-cta" data-loader-nav>Launch app →</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="hero hero-minimal">
+        <canvas id="dotted-surface" class="dotted-surface-canvas" aria-hidden="true"></canvas>
+        <div class="hero-minimal-content">
+          <h1 class="hero-wordmark">
+            TEXTIFY<span class="hero-wordmark-accent">PRO</span>
+          </h1>
+          <a href="#info" class="scroll-cue">
+            <span>Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5V19M12 19L6 13M12 19L18 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="info" class="intro">
+        <p class="eyebrow">Speech-to-text · Sarvam AI + ElevenLabs</p>
+        <h2 class="intro-title">
+          Speak in <span class="hero-accent">any language.</span><br />
+          Watch it take shape.
+        </h2>
+        <p class="hero-sub">
+          TextifyPro listens through your mic and gathers your words out of
+          drifting particles — 23 Indian languages via Sarvam AI, plus
+          Korean, Arabic, Spanish, French, Chinese and German via
+          ElevenLabs, with
+          native-script accuracy.
+        </p>
+        <p class="hero-note">Choose your language before you speak — TextifyPro doesn't auto-detect.</p>
+        <div class="hero-actions">
+          <a href="app/index.html" class="btn-primary" data-loader-nav>Launch TextifyPro</a>
+          <a href="#languages" class="btn-ghost">See all languages</a>
+        </div>
+      </section>
+
+      <section class="ticker-section" aria-label="Supported languages preview">
+        <div class="ticker">
+          <div class="ticker-track" id="ticker-track"></div>
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature-card">
+          <span class="feature-index">01</span>
+          <h3>Particles form your words</h3>
+          <p>Every transcript is rendered live — thousands of points rush
+             in from the edges of the screen and settle into the exact
+             shape of what you said.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-index">02</span>
+          <h3>29 languages, one mic</h3>
+          <p>Pick your language before you speak — Sarvam AI's Saaras v3
+             covers 23 Indian languages, and ElevenLabs' Scribe covers
+             Korean, Arabic, Spanish, French, Chinese, and
+             German. No auto-detect, so transcripts stay accurate.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-index">03</span>
+          <h3>Nothing to install</h3>
+          <p>Runs straight in the browser. Tap the mic, speak, and your
+             words appear — no app store, no sign-up screen.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-index">04</span>
+          <h3>New in 2.0 — talk to TextifyPro</h3>
+          <p>A full chat, powered by Sarvam AI's language model. Type or
+             speak your prompt and every conversation is saved to your
+             chat sidebar so you can pick it back up later.</p>
+        </div>
+      </section>
+
+      <section id="languages" class="languages">
+        <p class="eyebrow">Full language coverage</p>
+        <h2 class="section-title">Every language TextifyPro understands</h2>
+        <div class="lang-grid" id="lang-grid"></div>
+      </section>
+
+      <section class="dither-cta">
+        <div class="dither-card" id="dither-card">
+          <canvas id="dither-canvas" class="dither-canvas" aria-hidden="true"></canvas>
+
+          <div class="dither-content">
+            <div class="dither-badge">
+              <span class="dither-ping">
+                <span class="dither-ping-ring"></span>
+                <span class="dither-ping-dot"></span>
+              </span>
+              New in 2.0 — AI-Powered Chat
+            </div>
+
+            <h2 class="dither-title">
+              Your voice, <br />
+              <span class="dither-title-soft">delivered perfectly.</span>
+            </h2>
+
+            <p class="dither-sub">
+              One mic, 29 languages, and a chat that actually understands
+              you — clean transcripts and real conversation, saved to your
+              sidebar, in your own words.
+            </p>
+
+            <div class="hero-actions">
+              <a href="app/index.html" class="btn-primary dither-btn" data-loader-nav>
+                Start Speaking
+                <svg class="dither-btn-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href="app/chat.html" class="btn-ghost" data-loader-nav>Try the AI chat →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footbar">
+      <span>TextifyPro</span>
+      <div class="powered-by">
+        <span class="powered-label">Powered by</span>
+        <span class="brand-badge">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L13.8 9.2L21 11L13.8 12.8L12 20L10.2 12.8L3 11L10.2 9.2L12 2Z" fill="#D97757"/>
+          </svg>
+          Claude
+        </span>
+        <span class="brand-badge">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="10" width="2.4" height="4" rx="1.2" fill="#7c5cfc"/>
+            <rect x="7.4" y="6" width="2.4" height="12" rx="1.2" fill="#7c5cfc"/>
+            <rect x="11.8" y="2" width="2.4" height="20" rx="1.2" fill="#29e7cd"/>
+            <rect x="16.2" y="6" width="2.4" height="12" rx="1.2" fill="#7c5cfc"/>
+            <rect x="20.6" y="10" width="2.4" height="4" rx="1.2" fill="#7c5cfc"/>
+          </svg>
+          Sarvam AI
+        </span>
+        <span class="brand-badge">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="3.4" fill="#ffffff"/>
+          </svg>
+          ElevenLabs
+        </span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="loader.js" defer></script>
+  <script src="dotted-surface.js" defer></script>
+  <script src="script.js"></script>
+</body>
+</html>
